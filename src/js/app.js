@@ -36,5 +36,9 @@ const character = {
 };
 
 const arr = destructuring(character);
+
 // eslint-disable-next-line no-console
 console.log(arr);
+
+// eslint-disable-next-line no-console
+console.log(character);

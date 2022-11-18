@@ -1,12 +1,11 @@
-export default function destructuring(obj) {
+export default function destructuring({ ...obj }) {
+  const { special } = obj;
   const temp = [];
-  obj.special.forEach((item, idx) => temp.push({ ...obj.special[idx] }));
-  temp.forEach((item) => {
-    // eslint-disable-next-line no-prototype-builtins
-    if (item.hasOwnProperty('description') === false) {
-      // eslint-disable-next-line no-param-reassign
-      item.description = 'Описание недоступно';
-    }
+  special.forEach((item) => {
+    // eslint-disable-next-line object-curly-newline
+    const { id, name, icon, description = 'Описание недоступно' } = item;
+    // eslint-disable-next-line object-curly-newline
+    temp.push({ id, name, icon, description });
   });
   return temp;
 }
